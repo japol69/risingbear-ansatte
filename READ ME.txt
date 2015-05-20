@@ -1,3 +1,2 @@
 1. DO NOT RENAME PPLUGIN FOLDER.... it will break some urls inside the script.
 2. To edit output, edit custom.php .. look for "function jAllInfo()"
-3. Double check the database prefix

@@ -3,7 +3,7 @@
 Plugin Name: RisingBear Ansatte Plugin
 Plugin URI: http://www.risingbear.no
 Description: Staff list plugin
-Version: 1.0
+Version: 1.1
 Author: RisingBear Web Developers
 Author URI: http://www.risingbear.no
 License: 
@@ -144,8 +144,8 @@ function jInfo($atts){
 }
 
 add_shortcode( 'jAllInfo', 'jAllInfo' );
-function jAllInfo(){
-
+function jAllInfo($atts){
+	extract( shortcode_atts( array( 'department_id' => ''), $atts ) );
 	global $wpdb;
 	$table = $wpdb->prefix . "ansatte_settings";
 	$resultsort = $wpdb->get_results("SELECT * FROM `".$table."` WHERE `name`='sort'");
@@ -159,7 +159,12 @@ function jAllInfo(){
 	else {
 		$jparam = "ORDER BY `id` DESC";
 	}
-	$query = "SELECT * FROM `".$table."` WHERE `name`='contactinfo' ".$jparam."" ;
+	
+	if($department_id != ""){
+		$kparam = " AND `department`='$department_id' ";
+	}
+	
+	$query = "SELECT * FROM `".$table."` WHERE `name`='contactinfo' ".$kparam.$jparam."" ;
 	$result = $wpdb->get_results($query);
 	$len = count($result);
 	
