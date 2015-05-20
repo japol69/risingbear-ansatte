@@ -76,7 +76,7 @@ class Drew_Ansatte_Widget extends WP_Widget{
 		echo '</div></div>';
 		echo '<link rel="stylesheet" href="'.plugins_url().'/risingbear-ansatte/flexslider/flexslider.css">';
 		echo '<script src="'.plugins_url().'/risingbear-ansatte/flexslider/jquery.flexslider.js"></script>';
-		echo '<script src="'.plugins_url().'/risingbear-ansatte/flexslider/widgetslide.js"></script>';
+		echo '<script src="'.plugins_url().'/risingbear-ansatte/flexslider/widgetslide.js"></script>'; 
 	}
 
 	public function update($new_instance, $old_instance){
